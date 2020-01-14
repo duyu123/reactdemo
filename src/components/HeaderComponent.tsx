@@ -1,4 +1,5 @@
 import React from 'react'
+import '../assets/css/layout.scss'
 
 const Header: React.FC = () => {
   return (
