@@ -1,68 +1,78 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ts-react
 
-## Available Scripts
+效果预览地址: 
+- [点击这里](http://www.xingwenpeng.cn:8010/)
 
-In the project directory, you can run:
+2019-06-24   
+ 
+    > * 添加项目整体目录完成 
+ 
+2019-07-06  
+ 
+    > * 实践react hook搭配antd（Ts写法）
+    
+    > * 添加配置文件config.js，实现配置文件实现动态增加左侧导航功能
+ 
+2019-07-08  
+ 
+    > * 基本完成脚手架（后续进行完善）
 
-### `npm start`
+2019-07-09
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] 功能已全部实现
+- [x] 暴露接口
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2019-07-12
+ 
+- [ ] 反馈有bug，解决中(无法及时响应删除的添加的反应，逐条处理)
 
-### `npm test`
+------
+**框架使用：**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+环境要求：
 
-### `npm run build`
+> * node版本 10+
+> * npm版本 6+
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```javascript
+1.首先git clone下来
+2.使用脚手架目录打开cmd，输入命令npm install（如果失败请使用管理员权限打开cmd）
+3.在命令行中输入npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+打开界面：![cmd-markdown-logo](http://i1.cy.com/x/jiemian.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+红色框框处使我们第一个需要配置的地方：
 
-### `npm run eject`
+    1.打开src目录下面的config.js
+    2.进行配置：
+    
+![cmd-markdown-logo](http://i1.cy.com/x/peizhi.png)
+    
+    sub对应的为为左侧导航。content为导航所对应的表格字段
+    
+    白色箭头所指数组的前三个元素分别对应导航key值，导航的图标，以及导航的名称。
+    
+    数组第四个元素为数组，对应为导航子元素的key值以及子元素的名称。
+    
+    注意：每次添加完子元素时。都要在下面content数组中对应的key值中添加相应的表格字段，比如班级的ke     y为0，那就在content数组中0位置添加表格字段。
+    
+    表格字段可选width，title，以及是否可以被编辑editable
+    
+---- 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    1.都设置完成后打开界面
+![cmd-markdown-logo](http://i1.cy.com/x/zhanshi.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    2. 如下图可以添加表格内容，删除内容，直接点击空表格进行编辑（刷新页面不会使数据丢失）
+    
+![cmd-markdown-logo](http://i1.cy.com/x/shanchu.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    3.在admin.tsx中暴露新增数据与删除数据的接口，删除元素为子导航的key+被删除数据的key，添加为被删除数据的key+子导航的key。
+    
+![cmd-markdown-logo](http://i1.cy.com/x/jiekou.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+----
+ 
+总结：框架还在完善中，有很多需要完善的地方，框架扩展性比较强。都看到这里了，大佬点个start吧
+![cmd-markdown-logo](http://i1.cy.com/x/kule.png)
