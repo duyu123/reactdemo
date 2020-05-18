@@ -13,7 +13,7 @@ const Main: React.FC = () => (
       <Layout>
         <SiderNav />
         <Layout>
-          {!isLoading && <ContentMain />}
+          {<ContentMain />}
         </Layout>
       </Layout>
     </Layout>
