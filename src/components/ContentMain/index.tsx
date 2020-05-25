@@ -10,7 +10,7 @@ import {
 
 import {
   RestrictRoute
-} from '@/components'
+} from '../index'
 
 const ContentMain: FC<RouteComponentProps>=()=> {
   return (

@@ -8,7 +8,7 @@ interface IProps {
   exact: boolean
 }
 
-const RedirectRoute = ({ component: Component, path }: IProps) => {
+const RestrictRoute = ({ component: Component, path }: IProps) => {
   return (
     <Route 
       path={path}

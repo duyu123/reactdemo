@@ -13,14 +13,14 @@ import store from '../store'
 
 const App: React.FC = () => {
   return (
-    <div>
-      <ConfigProvider locale={zhCN}>
-        <Router>
-          <Provider {...store}>
-            <Routes />
-          </Provider>
-        </Router>
-      </ConfigProvider>
-    </div>
+    <ConfigProvider locale={zhCN}>
+      <Router>
+        <Provider {...store}>
+          <Routes />
+        </Provider>
+      </Router>
+    </ConfigProvider>
   )
 }
+
+export default App

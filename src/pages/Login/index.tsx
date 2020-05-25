@@ -7,12 +7,12 @@ import { Form } from 'antd'
 
 import './index.scss'
 
-typeof LoginProps = RouteComponentProps & FormComponentProps
+type LoginProps = RouteComponentProps & FormComponentProps
 
 const Login: FC<LoginProps> = (props: LoginProps) => {
   return (
-    <div>
-      <div className="login">
+    <div className="login">
+      <div className="login__header">
         <h1><i>登录</i></h1>
       </div>
 
@@ -111,4 +111,4 @@ const Login: FC<LoginProps> = (props: LoginProps) => {
   )
 }
 
-export default Form.create({name: 'loginForm'})(Login) as ComponentType
+export default Form.create({name: 'loginForm'})(Login) as ComponentType;

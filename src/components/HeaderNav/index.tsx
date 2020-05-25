@@ -3,13 +3,13 @@ import { withRouter, RouteComponentProps } from 'react-router-dom'
 import { Menu, Dropdown, Icon, message } from 'antd'
 import { observer } from 'mobx-react'
 
-import { useStore } from '@/admin/hooks/useStore'
+// import { useStore } from '@/admin/hooks/useStore'
 
 import './index.scss'
 
 const HeaderNav: FC<RouteComponentProps> = (props: RouteComponentProps) => {
-  const { userInfoStroe } = useStore()
-  const {username } = userInfoStroe
+  // const { userInfoStroe } = useStore()
+  // const {username } = userInfoStroe
 
   const handleLogout = () => {
     const { history } = props
@@ -47,7 +47,7 @@ const HeaderNav: FC<RouteComponentProps> = (props: RouteComponentProps) => {
 
         <Dropdown overlay={Menu}>
           <div className="info">
-            <span>{username}</span>
+            {/* <span>{username}</span> */}
             <img src="http://cdn.algbb.cn/avatar" width="35" height="35" />
           </div>
         </Dropdown>

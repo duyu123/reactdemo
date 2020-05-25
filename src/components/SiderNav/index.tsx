@@ -5,7 +5,7 @@ import { Layout, Menu, Icon } from 'antd'
 const { SubMenu } = Menu
 const { Sider } = Layout
 
-import './index.scss'
+// import './index.scss'
 
 const SiderNav: FC<RouteComponentProps> = (props: RouteComponentProps) => {
   const [selectedKeys, setSelectedKeys] = useState(['index'])
