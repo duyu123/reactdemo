@@ -9,7 +9,7 @@ import { ConfigProvider  } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN';
 import Routes from '../routes'
 
-import store from '../store'
+import * as store from '../store'
 
 const App: React.FC = () => {
   return (

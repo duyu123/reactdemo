@@ -118,6 +118,9 @@ module.exports = function(webpackEnv) {
   };
 
   return {
+    externals: {
+      'AMap': 'AMap'
+    },
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,

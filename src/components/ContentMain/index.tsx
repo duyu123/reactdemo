@@ -12,9 +12,15 @@ import {
   RestrictRoute
 } from '../index'
 
+import './index.scss'
+
 const ContentMain: FC<RouteComponentProps>=()=> {
   return (
-    <div></div>
+    <div className="content">
+      <div className="main">
+
+      </div>
+    </div>
   )
 }
 

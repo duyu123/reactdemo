@@ -1,28 +1,63 @@
-import React, { ComponentType, FC, FormEvent } from 'react'
-import { Form, Input, Button } from 'antd'
+import React, { ComponentType, useState, FC, FormEvent } from 'react'
+import { Form, Input, Button, message } from 'antd'
 import { FormComponentProps } from 'antd/lib/form'
 import { RouteComponentProps } from 'react-router-dom'
-import { login } from '../../api/api'
+import { useService } from '../../hooks'
+import { FetchConfig } from '../../modals/http'
 
 import './index.scss'
 
 type LoginProps = RouteComponentProps & FormComponentProps
 
 const Login: FC<LoginProps> = (props: LoginProps) => {
-  console.log(props)
+  const [fetchConfig, setFetchConfig] = useState<FetchConfig>({
+    url: '', method: 'GET', params: {}, config: {}
+  })
+  const { response = {} } = useService(fetchConfig)
   const { getFieldDecorator } = props.form
+  const { code = 0, data = {} } = response || {}
+
+  /* 登录成功 */
+  if (code === 1) {
+    const { msg, token } = data
+    localStorage.setItem('token', token)
+    message.success(msg)
+    props.history.push('/')
+  }
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const { form } = props;
-    form.validateFields(async (err,values) => {
-      if(!err) {
-        const {usename, password} = values
-        await login({usename, password})
-        props.history.push('/')
+    const { form } = props
+    form.validateFields(async (err, values) => {
+      if (!err) {
+        const { username, password } = values
+        const loginConfig: FetchConfig = {
+          url: 'inner/login',
+          method: 'POST',
+          params: { username, password },
+          config: {}
+        }
+        setFetchConfig(Object.assign({}, loginConfig))
       }
-    }) 
+    })
   }
+
+  // const handleFormSubmit = (e: FormEvent) => {
+  //   e.preventDefault()
+  //   const { form } = props;
+  //   form.validateFields(async (err,values) => {
+  //     if(!err) {
+  //       const {username, password} = values
+  //       console.log(values)
+  //       const result = await login({account: username, password})
+  //       sessionStorage.setItem('id', result.id)
+  //       // sessionStorage.setItem('userName', result.user_name)
+  //       console.log(result)
+        
+  //       // props.history.push('/')
+  //     }
+  //   }) 
+  // }
   return (
     <div className="login">
       <div className="login__header">

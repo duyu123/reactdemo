@@ -1,3 +1,3 @@
 import axios from './http'
 
-export const login = (data: object) => axios.post('/api/login', data)
+export const login = (data: object) => axios.post('/inner/login', data)

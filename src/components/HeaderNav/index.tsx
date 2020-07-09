@@ -7,6 +7,16 @@ import { observer } from 'mobx-react'
 
 import './index.scss'
 
+const DisplayMenu: FC= () => {
+  return (
+    <ul className="menuList"> 
+      <li>地图</li>
+      <li>图表</li>
+    </ul>
+  )
+}
+
+
 const HeaderNav: FC<RouteComponentProps> = (props: RouteComponentProps) => {
   // const { userInfoStroe } = useStore()
   // const {username } = userInfoStroe
@@ -41,10 +51,12 @@ const HeaderNav: FC<RouteComponentProps> = (props: RouteComponentProps) => {
   return (
     <div className="header__container">
       <div className="header__wrap">
-        <div className="log">
+        <div className="logo">
+          <img alt="logo" className="logoImage" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" /> 
           admin
         </div>
 
+        <DisplayMenu></DisplayMenu>
         <Dropdown overlay={Menu}>
           <div className="info">
             {/* <span>{username}</span> */}
